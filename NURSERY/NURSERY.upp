@@ -1,0 +1,48 @@
+description "\377BI255,85,0";
+
+uses
+	CtrlLib,
+	MySql,
+	plugin/sqlite3,
+	SqlCtrl,
+	GridCtrl,
+	Styler,
+	Docking,
+	RichText,
+	RichEdit,
+	SplashSV,
+	DropGrid,
+	PopUpC;
+
+file
+	icon.rc,
+	NURSERY.h,
+	main.cpp,
+	BaseCtrl readonly separator,
+	BaseCtrl.h,
+	BaseCtrl.cpp,
+	CUSTOMERS readonly separator,
+	customers.h,
+	customers.cpp,
+	USERS readonly separator,
+	users.cpp,
+	users.h,
+	speciesettingsdetails.cpp,
+	SPECIES readonly separator,
+	prodectctrl.cpp,
+	species.cpp,
+	speciesettingsctrl.cpp,
+	species.h,
+	Others readonly separator,
+	NURSERY.t,
+	schema.sch,
+	NURSERY.lay,
+	NURSERY.iml,
+	splash.tpp,
+	uml_achtel.xml,
+	templates.brc;
+
+mainconfig
+	"" = "GUI .MYSQLDLL .NOMYSQL";
+
+ spellcheck_comments "EN-US"

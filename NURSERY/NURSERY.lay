@@ -1,0 +1,26 @@
+LAYOUT(MainLayout, 828, 426)
+	ITEM(GridCtrl, chpTable, LeftPosZ(37, 231).TopPosZ(428, 96))
+	ITEM(TabCtrl, chpTab, AcceptCurrent(true).HSizePosZ(3, 3).VSizePosZ(1, 2))
+	ITEM(MenuBarFind, chpSearch, LeftPosZ(304, 258).TopPosZ(467, 19))
+	ITEM(Button, chpBtnUser, LeftPosZ(352, 82).TopPosZ(502, 57))
+END_LAYOUT
+
+LAYOUT(BaseLayout, 826, 454)
+	ITEM(GridCtrl, chpTable, GridColor(Color(229, 229, 229)).FullColResizing(false).ResizingRows(true).MovingCols(true).ResizeColMode(0).LiveCursor(true).ColorRows(true).Indicator(true).Appending(true).Duplicating(true).Removing(true).Accepting(true).Canceling(true).Navigating(true).Searching(true).Editing(true).Clipboard(true).TabAddsRow(true).EnterLikeTab(true).Chameleon(true).HSizePosZ(288, 370).VSizePosZ(461, -84))
+	ITEM(DropList, chpDrop, AlwaysDrop(true).LeftPosZ(516, 96).TopPosZ(487, 19))
+	ITEM(Splitter, chpSepVert, HSizePosZ(2, 2).VSizePosZ(2, 3))
+	ITEM(ParentCtrl, chpRight, LeftPosZ(150, 70).TopPosZ(461, 73))
+END_LAYOUT
+
+LAYOUT(LoginLayout, 380, 380)
+	ITEM(Label, dv___0, SetLabel(t_("Login:")).HSizePosZ(52, 52).TopPosZ(136, 19))
+	ITEM(Label, dv___1, SetLabel(t_("Password:")).HSizePosZ(52, 52).TopPosZ(184, 19))
+	ITEM(EditString, chpLogin, TrimRight(true).TrimLeft(true).NotNull(true).HSizePosZ(52, 52).TopPosZ(156, 19))
+	ITEM(EditString, chpPassword, NotNull(true).HSizePosZ(52, 52).TopPosZ(205, 19))
+	ITEM(Option, chpStayConnected, SetLabel(t_("Stay connected")).HSizePosZ(52, 52).TopPosZ(233, 16))
+	ITEM(ImageCtrl, chpAvatar, LeftPosZ(126, 128).TopPosZ(4, 129))
+	ITEM(Button, ok, SetLabel(t_("Connect")).SetFont(StdFontZ(16).Bold()).HSizePosZ(52, 52).TopPosZ(266, 38))
+	ITEM(Button, chpSettings, SetLabel(t_("Settings")).RightPosZ(52, 117).TopPosZ(314, 23))
+	ITEM(Button, cancel, SetLabel(t_("Cancel")).RightPosZ(212, 117).TopPosZ(314, 23))
+END_LAYOUT
+
