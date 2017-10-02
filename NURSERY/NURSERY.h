@@ -15,7 +15,7 @@
 
 using namespace Upp;
 
-class MenuBarFind : public SuggestCtrl
+class MenuBarFind : public EditString
 {
 	private:
 		MultiButtonFrame button;

@@ -13,9 +13,12 @@ UsersCtrl::~UsersCtrl()
 
 void UsersCtrl::onCreateTableColumns()
 {
+	Button& b = this ->m_editors.Create <Button>() ;
+	b.SetLabel(t_("Update password"));
+	b << THISBACK(onUpdatePassword);
 	this ->AddColumn( USR_NAME		, t_("Name")	, 50 ).Edit( this ->m_editors.Create <EditString>().NotNull() );
 	this ->AddColumn( USR_LOGIN		, t_("Login")	, 200).Edit( this ->m_editors.Create <EditString>().NotNull() );
-	this ->AddColumn( USR_PASSWORD	, t_("Password"), 200).Edit( this ->m_editors.Create <EditString>() );
+	this ->AddColumn( USR_PASSWORD	, t_("Password"), 200).Edit( b );
 }
 
 void UsersCtrl::onInitGUI()
@@ -78,10 +81,11 @@ void UsersCtrl::onPrint()
 void UsersCtrl::onInsert()
 {
 	Sql sql;
+	LOG(password) ;
 	sql & Insert(DB_TABLE)
 				(USR_LOGIN, ~ chpTable( USR_LOGIN ))
 				(USR_NAME, ~ chpTable( USR_NAME ))
-				(USR_PASSWORD, MD5String(~ chpTable( USR_PASSWORD )))
+				(USR_PASSWORD, password )
 				;
 	
 	int userID = sql.GetInsertedId() ;
@@ -105,11 +109,59 @@ void UsersCtrl::onUpdate()
 	sql & Upp::Update(DB_TABLE)
 				(USR_LOGIN, ~ chpTable( USR_LOGIN ))
 				(USR_NAME, ~ chpTable( USR_NAME ))
-				(USR_PASSWORD, MD5String(~ chpTable( USR_PASSWORD )))
+				//(USR_PASSWORD, MD5String(~ chpTable( USR_PASSWORD )))
 			.Where ( DB_ID == ~ chpTable( DB_ID ) )
 			;
 }
 
+void UsersCtrl::onUpdatePassword()
+{
+	if ( !chpTable.IsCursor() ) return;
+	
+	int userID = getID() ;
+	WithPasswordLayout <TopWindow> dlg;
+	CtrlLayoutCancel(dlg,t_("User password") ) ;
+	
+	
+	if ( IsNull(userID) )
+	{
+		dlg.chpOld.Show(false);
+		dlg.chpOld <<= "a";
+		dlg.lib_old.Show(false);
+	}
+	
+	dlg.ok << [&]
+	{
+		if ( ~dlg.chpConfirm != ~dlg.chpNew )
+		{
+			PromptOK(DeQtf(t_("Please check confirm password !")));
+			return;
+		}
+		
+		if ( IsNull(userID) )
+		{
+			
+			password = MD5String(~ dlg.chpConfirm) ;
+			dlg.AcceptBreak(IDOK) ;
+		} else
+		{
+			if ( MD5String(~dlg.chpOld) != chpTable( USR_PASSWORD ) )
+			{
+				PromptOK(DeQtf(t_("Please check old password !")));
+				return;
+			}
+			
+			Sql sql;
+			sql & Upp::Update(DB_TABLE)
+							(USR_PASSWORD , MD5String(~ dlg.chpConfirm) )
+						.Where( DB_ID == userID )
+						;
+			dlg.AcceptBreak(IDOK) ;
+		}
+	};
+	
+	dlg.Run() ;
+}
 
 void UsersCtrl::onCursor()
 {

@@ -24,3 +24,14 @@ LAYOUT(LoginLayout, 380, 380)
 	ITEM(Button, cancel, SetLabel(t_("Cancel")).RightPosZ(212, 117).TopPosZ(314, 23))
 END_LAYOUT
 
+LAYOUT(PasswordLayout, 284, 216)
+	ITEM(Label, lib_old, SetLabel(t_("Old password:")).HSizePosZ(28, 20).TopPosZ(16, 19))
+	ITEM(Label, lib_new, SetLabel(t_("New password:")).HSizePosZ(28, 20).TopPosZ(72, 19))
+	ITEM(Label, lib_confirm, SetLabel(t_("Confirm password:")).HSizePosZ(28, 20).TopPosZ(120, 19))
+	ITEM(EditString, chpOld, NotNull(true).HSizePosZ(28, 20).TopPosZ(36, 19))
+	ITEM(EditString, chpNew, NotNull(true).HSizePosZ(28, 20).TopPosZ(92, 19))
+	ITEM(EditString, chpConfirm, NotNull(true).HSizePosZ(28, 20).TopPosZ(140, 19))
+	ITEM(Button, ok, SetLabel(t_("Ok")).RightPosZ(20, 84).TopPosZ(172, 20))
+	ITEM(Button, cancel, SetLabel(t_("Cancel")).LeftPosZ(28, 84).TopPosZ(172, 20))
+END_LAYOUT
+

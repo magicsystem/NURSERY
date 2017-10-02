@@ -39,7 +39,7 @@ file
 	NURSERY.lay,
 	NURSERY.iml,
 	splash.tpp,
-	uml_achtel.xml,
+	uml.xml,
 	templates.brc;
 
 mainconfig

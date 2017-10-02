@@ -18,12 +18,13 @@ public:
 
 	virtual void onInsert();
 	virtual void onUpdate();
+	virtual void onUpdatePassword();
 	
 	virtual void onCursor();
 	virtual void addUserToGroup();
 	virtual void removeUserFroGroup();
 	
-	
+	String password;
 	GridCtrl m_group_list;
 };
 

@@ -586,10 +586,10 @@ bool MenuBarFind::Key(dword key, int count)
 {
 	if(key == K_ENTER && WhenEnter)
 	{
-		bool ret = SuggestCtrl::Key(key, count);
+		bool ret = EditString::Key(key, count);
 		WhenEnter();
 		return ret;
 	}
 
-	return SuggestCtrl::Key(key, count);
+	return EditString::Key(key, count);
 }
