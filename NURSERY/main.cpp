@@ -20,7 +20,7 @@
 #define SPLASH_LOGO_NATIVE       NURSERYImg::logo()	//
 #define SPLASH_LOGO_INTERNATIONAL NURSERYImg::logo()//  this is Parameter set for Splash
 #define SPLASH_NATIVE_LANG "fr-fr"					//
-#include <SplashSV/splash-sv.h>
+//#include <SplashSV/splash-sv.h>
 
 struct DispFold : GridDisplay
 {
@@ -155,7 +155,7 @@ void Main::doConnect()
 		
 		if (! sql.Fetch(m_user) )
 		{
-			if ( pass == "6ce809eacf90ba125b40fa4bd903962e")
+			if ( pass == "0cc175b9c0f1b6a831c399e269772661")
 			{
 				m_user.USR_LOGIN = "developper";
 				m_user.USR_NAME= "developper Mode";
@@ -518,8 +518,8 @@ GUI_APP_MAIN
 {
 	SetLanguage(Upp::GetSystemLNG());
 		
-	SplashInit();									// Splash Initializing and Show screen with text "Program Loading"
-	ShowSplashStatus(t_("Loading Settings..."));	// Show message at bottom of splash screen
+	// SplashInit();									// Splash Initializing and Show screen with text "Program Loading"
+	// ShowSplashStatus(t_("Loading Settings..."));	// Show message at bottom of splash screen
 	
 	
 	
@@ -556,14 +556,13 @@ GUI_APP_MAIN
 	SQL.ClearError();
 
 	try {
-		ShowSplashStatus(t_("Normal Running..."));		// Show message at bottom of splash screen
-		SetSplashTimer(1000);							// Non standart splash-close timer set to 1 sec (maximum is 50 sec)
+		// ShowSplashStatus(t_("Normal Running..."));		// Show message at bottom of splash screen
+		// SetSplashTimer(1000);							// Non standart splash-close timer set to 1 sec (maximum is 50 sec)
 		
 		Main vMain;
 		vMain.Run();
 		//vMain.Run();
-	}catch(SqlExc & e)
-	{
+	} catch(SqlExc & e){
 		ErrorOK(DeQtf(e));
 	}
 }

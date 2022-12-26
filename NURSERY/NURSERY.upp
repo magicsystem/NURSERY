@@ -43,6 +43,6 @@ file
 	templates.brc;
 
 mainconfig
-	"" = "GUI .MYSQLDLL .NOMYSQL";
+	"" = "GUI .NOMYSQL";
 
  spellcheck_comments "EN-US"

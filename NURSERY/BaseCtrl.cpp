@@ -1,5 +1,5 @@
 #include "NURSERY.h"
-
+/*
 CH_LOCSTYLE(Button, Style, CloseStyle)
 {
 	look[0] = NURSERYImg::IMG_CLOSE1();
@@ -14,7 +14,7 @@ CH_LOCSTYLE(Button, Style, Detachtyle)
 	look[1] = NURSERYImg::IMG_DETACH2();
 	look[2] = NURSERYImg::IMG_DETACH3();
 	look[3] = NURSERYImg::IMG_DETACH4();
-}
+}*/
 
 BaseCtrl::BaseCtrl() : DB_ID("ID")
 {

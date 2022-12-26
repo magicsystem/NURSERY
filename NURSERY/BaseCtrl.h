@@ -11,8 +11,8 @@ struct TabButtons : public ParentCtrl
 	{
 		Add(detach.LeftPos(0,14).TopPos(0,14));
 		Add(close.LeftPos(15,14).TopPos(0,14));
-		close.SetStyle(CloseStyle());
-		detach.SetStyle(Detachtyle());
+		//close.SetStyle(CloseStyle());
+		//detach.SetStyle(Detachtyle());
 		close.Tip(t_("Close"));
 		detach.Tip(t_("Detach"));
 		

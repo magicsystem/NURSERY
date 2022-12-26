@@ -6,11 +6,11 @@
 #include <SqlCtrl/SqlCtrl.h>
 #include <plugin/sqlite3/Sqlite3.h>
 #include <GridCtrl/GridCtrl.h>
-#include <Styler/Styler.h>
+// #include <Styler/Styler.h>
 #include <Docking/Docking.h>
 #include <RichEdit/RichEdit.h>
 #include <DropGrid/DropGrid.h>
-#include <PopUpC/PopUpC.h>
+//#include <PopUpC/PopUpC.h>
 
 
 using namespace Upp;
