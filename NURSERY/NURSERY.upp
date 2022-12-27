@@ -6,11 +6,9 @@ uses
 	plugin/sqlite3,
 	SqlCtrl,
 	GridCtrl,
-	Styler,
 	Docking,
 	RichText,
 	RichEdit,
-	SplashSV,
 	DropGrid,
 	PopUpC;
 
